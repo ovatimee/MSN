@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/3cb60fcf94.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+    <article>
+      <div class="search__bar">
+        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input class="search__input" type="text" />
+        <button><i class="fa-solid fa-location-crosshairs"></i> </button>
+      </div>
+      <div class="current__forecast">
+        <title><p>Curent Weather</p> <input type="checkbox" /></title>
+        <div>
+          <p id="country">Paris</p>
+          <img src="https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png" alt="" id="icon" />
+          <p id="degree">36</p>
+          <p id="description">Clear Sky</p>
+        </div>
+        <div>
+          <p id="timezone">America/New_York</p>
+          <p id="time">10:40 PM</p>
+          <div>
+            <button> <i class="fa-solid fa-droplet-degree"></i> </button>
+            <p class="humidity">Humidity</p>
+            <p class="humidity_deg">90</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-wind"></i>
+            <p class="humidity">Wind</p>
+            <p class="humidity_deg">349</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-sun-haze"></i>
+            <p class="humidity">Pressure</p>
+            <p class="humidity_deg">1010</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
