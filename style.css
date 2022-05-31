@@ -14,36 +14,61 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12deg);
-  gap: 2rem;
+
+article{
+  background-color: rgba(49, 48, 44, 1);
+  padding: 3rem;
+  border-radius: 12px;
 }
 
-.search__bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 300px;
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.7);
+.autocomplete_container{
+  position: relative;
+  margin-inline: auto;
 }
 
-.search__input {
+.autocomplete_container input{
   width: 100%;
-  padding: 20px;
-  background: transparent;
+  outline: none;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  font-size: 16px;
 }
 
-.current__forecast {
-  border-radius: 25px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
-  padding: 0.8rem;
+
+.autocomeplete_items{
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10 2px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+
+  z-index: 99;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+}
+
+.autocomeplete_items div{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.autocomeplete_items div:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+.inpput_filed input{
+  outline: none;
+  background-color: #fff;
+}
+
+.forecast_item{
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 12px;
+  text-align: center;
 }
