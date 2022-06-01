@@ -26,40 +26,73 @@ article{
 
 .autocomplete_container{
   position: relative;
+  box-shadow: 0 0 12px rgba(255, 255, 255, .3);
   margin-inline: auto;
+  border-radius: 12px;
 }
 
 .autocomplete_container input{
   width: 100%;
   outline: none;
 
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
   padding: 10px;
   font-size: 16px;
 }
 
 
-.autocomeplete_items{
+.autocomplete-items{
   position: absolute;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 10 2px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 99;
   top: calc(100% + 2px);
-  left: 0;
+  left: 5px;
   right: 0;
 }
 
-.autocomeplete_items div{
+.autocomplete-items div{
   padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.autocomplete-items div:hover{
+  background-color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
 }
 
-.autocomeplete_items div:hover{
-  background-color: rgba(0, 0, 0, 0.1);
+.autocomplete-items .autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
+.clear-button {
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  
+  position: absolute;
+  right: 5px;
+  top: 0;
+
+  height: 100%;
+  display: none;
+  align-items: center;
+}
+
+.clear-button.visible {
+  display: flex;
+}
+
+
+.clear-button:hover {
+  color: rgba(255, 255, 255, 1);
+}
 
 
 .inpput_filed input{
