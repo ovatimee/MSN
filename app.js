@@ -6,6 +6,7 @@ const dom = {
   humidity: document.querySelector(".humidity_deg"),
   wind: document.querySelector(".wind_deg"),
   pressure: document.querySelector(".pressure_deg"),
+  forecasts: document.getElementById("forecasts"),
 };
 
 const getIp = async () => {
@@ -247,7 +248,7 @@ const addressAutocomplete = (containerElement, callback, options) => {
 const fetchData = async (city, lon, lat) => {
   const apiKey = "36da0d00f84b61dd59358f82c0f640fe";
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,minutely&appid=${apiKey}`
   );
   const data = await response.json();
   const weather = {
@@ -259,18 +260,41 @@ const fetchData = async (city, lon, lat) => {
     humidity: data.current.humidity,
     pressure: data.current.pressure,
     wind: data.current.wind_speed,
+    forecasts: data.daily,
   };
   updateWeather(weather);
 };
 
-const updateWeather = (info) => {
-  dom.country.innerHTML = `${info.location}`;
-  dom.icon.src = info.icon;
-  dom.temperature.innerHTML = `${info.temperature}°`;
-  dom.describtion.innerHTML = info.describtion;
-  dom.humidity.innerHTML = info.humidity;
-  dom.wind.innerHTML = info.wind;
-  dom.pressure.innerHTML = info.pressure;
+const updateWeather = (data) => {
+  dom.country.innerHTML = `${data.location}`;
+  dom.icon.src = data.icon;
+  dom.temperature.innerHTML = `${data.temperature}°`;
+  dom.describtion.innerHTML = data.describtion;
+  dom.humidity.innerHTML = data.humidity;
+  dom.wind.innerHTML = data.wind;
+  dom.pressure.innerHTML = data.pressure;
+
+  const fragment = document.createDocumentFragment();
+
+  data.forecasts.slice(0, 5).map((daily) => {
+    const forecastItem = document.createElement("div");
+    forecastItem.className = "forcastItem";
+    const day = document.createElement("h2");
+    day.innerHTML = new Date(daily.dt * 1000).toString().slice(0, 3);
+    forecastItem.appendChild(day);
+    const icon = document.createElement("img");
+    icon.src = `https://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`;
+    forecastItem.appendChild(icon);
+    const wind = document.createElement("p")
+    wind.innerHTML = '25°'
+    const humidity = document.createElement('p')
+    humidity.innerHTML = '76°'
+    forecastItem.appendChild(wind)
+    forecastItem.appendChild(humidity)
+
+    fragment.appendChild(forecastItem);
+  });
+  dom.forecasts.appendChild(fragment);
 };
 
 window.addEventListener("DOMContentLoaded", getIp);

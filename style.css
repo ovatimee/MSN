@@ -9,6 +9,7 @@ main {
   background: url("https://source.unsplash.com/random?sky");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -22,13 +23,14 @@ article{
   background-color: rgba(49, 48, 44, 1);
   padding: 3rem;
   border-radius: 12px;
+  max-width: 400px;
 }
 
 .autocomplete_container{
   position: relative;
-  box-shadow: 0 0 12px rgba(255, 255, 255, .3);
   margin-inline: auto;
   border-radius: 12px;
+  display: none;
 }
 
 .autocomplete_container input{
@@ -100,8 +102,24 @@ article{
   background-color: #fff;
 }
 
-.forecast_item{
+/* Forcasts */
+.forecasts{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.forcastItem{
   background-color: rgba(255, 255, 255, .3);
   border-radius: 12px;
   text-align: center;
+  height: 150px;
+  padding: 0 .2em;
+}
+
+.forcastItem  img {
+  width: 65px;
 }
