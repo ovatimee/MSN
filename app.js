@@ -23,6 +23,17 @@ const getIp = async () => {
 };
 
 /* 
+  -Show Input Menu
+*/
+
+const locationMenu = () => {
+  const editBtn = document.getElementById("svg");
+  editBtn.addEventListener("click", () => {
+    const inputMenu = document.getElementById("location-input");
+    inputMenu.style.display = "block";
+  });
+};
+/* 
 	The addressAutocomplete takes as parameters:
   - a container element (div)
   - callback to notify about address selection
@@ -245,12 +256,27 @@ const addressAutocomplete = (containerElement, callback, options) => {
   });
 };
 
+addressAutocomplete(
+  document.getElementById("autocomplete-container"),
+  (data) => {
+    console.log("Selected city: ");
+    const location = `${data.properties.city}, ${data.properties.country}`;
+    const lat = `${data.properties.lat}`;
+    const lon = `${data.properties.lon}`;
+    fetchData(location, lat, lon);
+  },
+  {
+    placeholder: "Enter a city name here",
+  }
+);
+
 const fetchData = async (city, lon, lat) => {
   const apiKey = "36da0d00f84b61dd59358f82c0f640fe";
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,minutely&appid=${apiKey}`
   );
   const data = await response.json();
+  console.log(data.current);
   const weather = {
     location: `${city}`,
     icon: `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`,
@@ -276,21 +302,26 @@ const updateWeather = (data) => {
 
   const fragment = document.createDocumentFragment();
 
-  data.forecasts.slice(0, 5).map((daily) => {
+  data.forecasts.map((daily) => {
     const forecastItem = document.createElement("div");
+    const pong = document.createElement("div")
+    pong.className = "pong"
     forecastItem.className = "forcastItem";
     const day = document.createElement("h2");
     day.innerHTML = new Date(daily.dt * 1000).toString().slice(0, 3);
     forecastItem.appendChild(day);
     const icon = document.createElement("img");
     icon.src = `https://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`;
-    forecastItem.appendChild(icon);
-    const wind = document.createElement("p")
-    wind.innerHTML = '25°'
-    const humidity = document.createElement('p')
-    humidity.innerHTML = '76°'
-    forecastItem.appendChild(wind)
-    forecastItem.appendChild(humidity)
+    pong.appendChild(icon);
+    const wind = document.createElement("p");
+    wind.innerHTML = "25°";
+    const humidity = document.createElement("p");
+    humidity.innerHTML = "76°";
+    const dong = document.createElement("div")
+    dong.appendChild(wind);
+    dong.appendChild(humidity);
+    pong.appendChild(dong)
+    forecastItem.appendChild(pong)
 
     fragment.appendChild(forecastItem);
   });
@@ -298,16 +329,3 @@ const updateWeather = (data) => {
 };
 
 window.addEventListener("DOMContentLoaded", getIp);
-addressAutocomplete(
-  document.getElementById("autocomplete-container-city"),
-  (data) => {
-    console.log("Selected city: ");
-    const location = `${data.properties.city}, ${data.properties.country}`;
-    const lat = `${data.properties.lat}`;
-    const lon = `${data.properties.lon}`;
-    fetchData(location, lat, lon);
-  },
-  {
-    placeholder: "Enter a city name here",
-  }
-);

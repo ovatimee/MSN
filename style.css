@@ -1,7 +1,11 @@
-body {
-  box-sizing: border-box;
+*{
   padding: 0;
   margin: 0;
+  
+}
+
+body {
+  box-sizing: border-box;
   background-color: lightblue;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -21,16 +25,34 @@ main {
 
 article{
   background-color: rgba(49, 48, 44, 1);
-  padding: 3rem;
+  padding: .5rem 3rem;
   border-radius: 12px;
-  max-width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.loc__input-container{
+  height: 100%;
+  backdrop-filter: blur(20px);
+  width: 100%;
+  transition: all 400ms ease-in-out;
+
+  display: none;
+
+  position: absolute;
+  z-index: 999;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .autocomplete_container{
   position: relative;
   margin-inline: auto;
   border-radius: 12px;
-  display: none;
+
 }
 
 .autocomplete_container input{
@@ -44,6 +66,8 @@ article{
   color: #fff;
   padding: 10px;
   font-size: 16px;
+
+
 }
 
 
@@ -104,7 +128,8 @@ article{
 
 /* Forcasts */
 .forecasts{
-  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,10 +141,50 @@ article{
   background-color: rgba(255, 255, 255, .3);
   border-radius: 12px;
   text-align: center;
-  height: 150px;
   padding: 0 .2em;
 }
 
 .forcastItem  img {
   width: 65px;
+}
+
+.full-width{
+  display: none;
+}
+
+table{
+  width: 100%;
+  table-layout: fixed;
+  display: block;
+  border-collapse: collapse;
+  border-spacing: 30px;
+}
+table th, td{
+padding:0 15px 0 15px
+}
+
+@media screen and (min-width: 800px) {
+  article{
+    max-width: 1000px;
+    gap: 2rem;
+  }
+  .current__weather{
+    background: url("https://source.unsplash.com/random?weather");
+    padding: 1rem;
+  }
+  .full-width{
+    display: block;
+  }
+
+  .forcastItem{
+    padding: .6rem 1.2rem;
+  }
+
+  .pong{
+  display: flex;
+  gap: .7rem;
+  align-items: center;
+}
+
+  
 }
