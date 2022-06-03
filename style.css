@@ -1,11 +1,10 @@
-*{
+* {
   padding: 0;
   margin: 0;
-  
+  box-sizing: border-box;
 }
 
 body {
-  box-sizing: border-box;
   background-color: lightblue;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -22,17 +21,16 @@ main {
   color: #fff;
 }
 
-
-article{
+article {
   background-color: rgba(49, 48, 44, 1);
-  padding: .5rem 3rem;
+  padding: 0.5rem 3rem;
   border-radius: 12px;
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.loc__input-container{
+.loc__input-container {
   height: 100%;
   backdrop-filter: blur(20px);
   width: 100%;
@@ -48,14 +46,13 @@ article{
   left: 0;
 }
 
-.autocomplete_container{
+.autocomplete_container {
   position: relative;
   margin-inline: auto;
   border-radius: 12px;
-
 }
 
-.autocomplete_container input{
+.autocomplete_container input {
   width: 100%;
   outline: none;
 
@@ -66,12 +63,9 @@ article{
   color: #fff;
   padding: 10px;
   font-size: 16px;
-
-
 }
 
-
-.autocomplete-items{
+.autocomplete-items {
   position: absolute;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 10 2px rgba(0, 0, 0, 0.2);
@@ -82,13 +76,13 @@ article{
   right: 0;
 }
 
-.autocomplete-items div{
+.autocomplete-items div {
   padding: 10px;
   border: 1px solid;
   border-radius: 5px;
 }
 
-.autocomplete-items div:hover{
+.autocomplete-items div:hover {
   background-color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
 }
@@ -101,7 +95,7 @@ article{
 .clear-button {
   color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  
+
   position: absolute;
   right: 5px;
   top: 0;
@@ -115,76 +109,74 @@ article{
   display: flex;
 }
 
-
 .clear-button:hover {
   color: rgba(255, 255, 255, 1);
 }
 
-
-.inpput_filed input{
+.inpput_filed input {
   outline: none;
   background-color: #fff;
 }
 
 /* Forcasts */
-.forecasts{
+.forecasts {
   max-width: 900px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1.5rem;
   position: relative;
 }
 
-.forcastItem{
-  background-color: rgba(255, 255, 255, .3);
-  border-radius: 12px;
+.forcastItem {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
   text-align: center;
-  padding: 0 .2em;
+  padding: 0 0.2em;
 }
 
-.forcastItem  img {
+.forcastItem img {
   width: 65px;
 }
 
-.full-width{
+.full-width {
   display: none;
 }
 
-table{
+table {
   width: 100%;
   table-layout: fixed;
   display: block;
   border-collapse: collapse;
   border-spacing: 30px;
 }
-table th, td{
-padding:0 15px 0 15px
+table th,
+td {
+  padding: 0 15px 0 15px;
 }
 
 @media screen and (min-width: 800px) {
-  article{
+  article {
     max-width: 1000px;
     gap: 2rem;
   }
-  .current__weather{
+  .current__weather {
     background: url("https://source.unsplash.com/random?weather");
     padding: 1rem;
   }
-  .full-width{
+  .full-width {
     display: block;
   }
-
-  .forcastItem{
-    padding: .6rem 1.2rem;
+.forecasts{
+}
+  .forcastItem {
+  text-align: left;
+    padding: 0.6rem 1.2rem;
   }
 
-  .pong{
-  display: flex;
-  gap: .7rem;
-  align-items: center;
-}
-
-  
+  .pong {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+  }
 }

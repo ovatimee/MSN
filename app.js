@@ -19,7 +19,7 @@ const getIp = async () => {
   const location = `${ipData.city.name}, ${ipData.country.name}`;
   const lat = ipData.location.latitude;
   const lon = ipData.location.longitude;
-  fetchData(location, lat, lon);
+  await fetchData(location, lat, lon);
 };
 
 /* 
@@ -304,8 +304,8 @@ const updateWeather = (data) => {
 
   data.forecasts.map((daily) => {
     const forecastItem = document.createElement("div");
-    const pong = document.createElement("div")
-    pong.className = "pong"
+    const pong = document.createElement("div");
+    pong.className = "pong";
     forecastItem.className = "forcastItem";
     const day = document.createElement("h2");
     day.innerHTML = new Date(daily.dt * 1000).toString().slice(0, 3);
@@ -317,15 +317,18 @@ const updateWeather = (data) => {
     wind.innerHTML = "25°";
     const humidity = document.createElement("p");
     humidity.innerHTML = "76°";
-    const dong = document.createElement("div")
+    const dong = document.createElement("div");
     dong.appendChild(wind);
     dong.appendChild(humidity);
-    pong.appendChild(dong)
-    forecastItem.appendChild(pong)
+    pong.appendChild(dong);
+    forecastItem.appendChild(pong);
 
     fragment.appendChild(forecastItem);
   });
   dom.forecasts.appendChild(fragment);
 };
+
+// Forcast Slider
+
 
 window.addEventListener("DOMContentLoaded", getIp);
