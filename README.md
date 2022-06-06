@@ -5,7 +5,8 @@ This is my first project from learning Async and Await, I choose to rebuild the 
 
 ### Screenshot
 
-![](./screenshot.jpg)
+<img width="1169" alt="Screen Shot 2022-06-06 at 1 25 22 PM" src="https://user-images.githubusercontent.com/26252304/172169659-68f9cd00-c7be-48a1-911d-a327a20ac37b.png">
+
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
