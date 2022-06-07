@@ -328,19 +328,34 @@ const updateWeather = (data) => {
   dom.forecasts.appendChild(fragment);
 };
 
+
+
 // Forcast Slider
 
 // Weather News
 const newsData = async () => {
-  const promise = await fetch(
-    "https://gnews.io/api/v4/search?q=weather&token=42d269226f5e7c87adc6ccc001312b4e"
-  );
-  const data = promise.json();
-  console.log(data);
-  data.array.forEach((element) => {
-    const elementDiv = document.createElement("div");
-  });
+  const response = await fetch("https://newsapi.org/v2/everything?q=health&from=2022-06-07&sortBy=popularity&apiKey=ce538b502bb14ba181e51e31d0480f2a")
+  const news = await response.json();
+  console.log(news)
+  news.articles.map(element =>{
+   const elementGrid = document.querySelector(".grid-box")
+    const newsImage = document.createElement("img")
+    newsImage.src = element.urlToImage
+  const gridItem = document.createElement("div")
+    const link = document.createElement("a")
+    link.href = element.url
+    gridItem.className = "grid-item"
+    const newsTitle = document.createElement("h3")
+    newsTitle.innerHTML = element.title
+    gridItem.appendChild(newsImage)
+    gridItem.appendChild(newsTitle)
+    link.appendChild(gridItem)
+    elementGrid.appendChild(link)
+    console.log(link)
+  })
 };
+
 newsData();
 
 window.addEventListener("DOMContentLoaded", getIp);
+

@@ -5,23 +5,30 @@
 }
 
 body {
-  background-color: lightblue;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgba(20, 48, 44, 1);
+}
+nav{
+  width: 100%;
+  display: flex;
+}
+.logo{
+  margin-right: auto;
 }
 main {
-  background: url("https://source.unsplash.com/random?sky");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   color: #fff;
 }
-
-article {
+img{
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+}
+.weather_article {
   background-color: rgba(49, 48, 44, 1);
   padding: 0.5rem 3rem;
   border-radius: 12px;
@@ -153,6 +160,42 @@ table {
 table th,
 td {
   padding: 0 15px 0 15px;
+}
+
+.grid-box{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.grid-box a{
+  text-decoration: none;
+  color: white;
+}
+
+.grid-box a:nth-child(1) {
+   grid-column: span 2;
+ }
+ .grid-box a:nth-child(5) {
+}
+
+.grid-item{
+  background-color: rgba(49, 48, 44, 1);
+  text-align: center;
+  position: relative;
+  border-radius: 5px;
+}
+.grid-item h3{
+  border-top: 1px solid;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.grid-item img {
+  max-height: 204px;
+  width: 100%;
+  margin-bottom: 12px;
 }
 
 @media screen and (min-width: 800px) {

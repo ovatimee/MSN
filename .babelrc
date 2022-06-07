@@ -2,7 +2,7 @@
   "presets": [
     "@babel/presets-env",
     {
-      "module": false
+      "modules": false
     }
   ]
 }
