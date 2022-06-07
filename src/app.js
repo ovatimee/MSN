@@ -19,6 +19,7 @@ const getIp = async () => {
   const location = `${ipData.city.name}, ${ipData.country.name}`;
   const lat = ipData.location.latitude;
   const lon = ipData.location.longitude;
+  console.log(process.env.SECRETE_NAME)
   await fetchData(location, lat, lon);
 };
 
@@ -276,7 +277,6 @@ const fetchData = async (city, lon, lat) => {
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,minutely&appid=${apiKey}`
   );
   const data = await response.json();
-  console.log(data.current);
   const weather = {
     location: `${city}`,
     icon: `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`,
@@ -290,7 +290,7 @@ const fetchData = async (city, lon, lat) => {
   };
   updateWeather(weather);
 };
-
+// Update Weather To User
 const updateWeather = (data) => {
   dom.country.innerHTML = `${data.location}`;
   dom.icon.src = data.icon;
@@ -330,5 +330,17 @@ const updateWeather = (data) => {
 
 // Forcast Slider
 
+// Weather News
+const newsData = async () => {
+  const promise = await fetch(
+    "https://gnews.io/api/v4/search?q=weather&token=42d269226f5e7c87adc6ccc001312b4e"
+  );
+  const data = promise.json();
+  console.log(data);
+  data.array.forEach((element) => {
+    const elementDiv = document.createElement("div");
+  });
+};
+newsData();
 
 window.addEventListener("DOMContentLoaded", getIp);
