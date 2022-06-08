@@ -9,6 +9,14 @@ const dom = {
   forecasts: document.getElementById("forecasts"),
 };
 
+// Dark Mode
+var content = document.getElementsByTagName('body')[0];
+        const darkMode = document.getElementById('dark-change');
+        darkMode.addEventListener('click', function(){
+            darkMode.classList.toggle('active');
+            content.classList.toggle('night');
+        })
+
 const getIp = async () => {
   const apiKey = "8895711f8bdd40debb989a97caf85f89";
 
