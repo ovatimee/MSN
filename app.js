@@ -19,7 +19,6 @@ const getIp = async () => {
   const location = `${ipData.city.name}, ${ipData.country.name}`;
   const lat = ipData.location.latitude;
   const lon = ipData.location.longitude;
-  console.log(process.env.SECRETE_NAME)
   await fetchData(location, lat, lon);
 };
 
@@ -334,13 +333,13 @@ const updateWeather = (data) => {
 
 // Weather News
 const newsData = async () => {
-  const response = await fetch("https://newsapi.org/v2/everything?q=health&from=2022-06-07&sortBy=popularity&apiKey=ce538b502bb14ba181e51e31d0480f2a")
+  const response = await fetch("https://api.nytimes.com/svc/topstories/v2/science.json?api-key=GJ4kOLnG6fQ2PWYADS9vsYueiYKhEmPm")
   const news = await response.json();
   console.log(news)
-  news.articles.map(element =>{
+  news.results.map(element =>{
    const elementGrid = document.querySelector(".grid-box")
     const newsImage = document.createElement("img")
-    newsImage.src = element.urlToImage
+    newsImage.src = element.multimedia[0].url
   const gridItem = document.createElement("div")
     const link = document.createElement("a")
     link.href = element.url
@@ -351,7 +350,7 @@ const newsData = async () => {
     gridItem.appendChild(newsTitle)
     link.appendChild(gridItem)
     elementGrid.appendChild(link)
-    console.log(link)
+    console.log(element)
   })
 };
 
