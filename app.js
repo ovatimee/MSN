@@ -333,13 +333,13 @@ const updateWeather = (data) => {
 
 // Weather News
 const newsData = async () => {
-  const response = await fetch("https://api.nytimes.com/svc/topstories/v2/science.json?api-key=GJ4kOLnG6fQ2PWYADS9vsYueiYKhEmPm")
+  const response = await fetch("http://api.mediastack.com/v1/news?access_key=4892479f7b5c701ca9cef5dc19ba0de1&keywords=weather&countries=us,%20gb,%20de&limit=100")
   const news = await response.json();
   console.log(news)
-  news.results.map(element =>{
+  news.data.map(element =>{
    const elementGrid = document.querySelector(".grid-box")
     const newsImage = document.createElement("img")
-    newsImage.src = element.multimedia[0].url
+    newsImage.src = element.image
   const gridItem = document.createElement("div")
     const link = document.createElement("a")
     link.href = element.url
