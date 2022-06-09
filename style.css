@@ -12,7 +12,7 @@
 label {
   position: relative;
   width: 45px;
-  height: 22px;
+  height: 23px;
   border: 2px solid;
   border-radius: 20px;
 }
@@ -38,7 +38,7 @@ body.night {
 }
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #fff;
+  background-color: #efefef;
   color: #000;
 }
 nav {
@@ -63,7 +63,7 @@ img {
   max-height: 160px;
   object-fit: contain;
 }
-.weather__section{
+.weather__section {
 }
 .weather_article {
   padding: 0.5rem 3rem;
@@ -72,6 +72,7 @@ img {
   display: flex;
   flex-direction: column;
   margin-inline: auto;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 .loc__input-container {
@@ -164,9 +165,10 @@ img {
 
 /* Forcasts */
 .forecasts {
-  max-width: 900px;
   overflow: hidden;
-  display: flex;
+  display: grid;
+  grid-column: auto;
+  grid-template-columns: repeat(9, auto);
   align-items: center;
   gap: 1.5rem;
   position: relative;
@@ -175,11 +177,17 @@ img {
 .forcastItem {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
-  text-align: center;
+  padding: 0 0.2em;
+  width: 150px;
+  text-align: left;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+}
+.forcastItem:nth-child(8) {
+  display: none;
 }
 
 .forcastItem img {
-  width: 65px;
+  width: 50px;
 }
 
 .full-width {
@@ -197,8 +205,7 @@ table th,
 td {
   padding: 0 15px 0 15px;
 }
-.news-articles{
-
+.news-articles {
   margin-inline: auto;
 }
 .grid-box {
@@ -220,7 +227,7 @@ td {
 }
 
 .grid-item {
-  box-shadow: 0 0 12px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
   text-align: center;
   position: relative;
   border-radius: 5px;

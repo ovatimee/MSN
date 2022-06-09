@@ -10,7 +10,7 @@ const dom = {
 };
 
 // Dark Mode
-var content = document.getElementsByTagName('body')[0];
+const content = document.getElementsByTagName('body')[0];
         const darkMode = document.getElementById('dark-change');
         darkMode.addEventListener('click', function(){
             darkMode.classList.toggle('active');
@@ -341,25 +341,41 @@ const updateWeather = (data) => {
 
 // Weather News
 const newsData = async () => {
-  const response = await fetch("http://api.mediastack.com/v1/news?access_key=4892479f7b5c701ca9cef5dc19ba0de1&keywords=weather&countries=us,%20gb,%20de&limit=100")
-  const news = await response.json();
-  console.log(news)
-  news.data.map(element =>{
-   const elementGrid = document.querySelector(".grid-box")
-    const newsImage = document.createElement("img")
-    newsImage.src = element.image
-  const gridItem = document.createElement("div")
-    const link = document.createElement("a")
-    link.href = element.url
-    gridItem.className = "grid-item"
-    const newsTitle = document.createElement("h3")
-    newsTitle.innerHTML = element.title
-    gridItem.appendChild(newsImage)
-    gridItem.appendChild(newsTitle)
-    link.appendChild(gridItem)
-    elementGrid.appendChild(link)
-    console.log(element)
-  })
+
+  const options = {
+  method: 'GET',
+  url: 'https://free-news.p.rapidapi.com/v1/search',
+  params: {q: 'Elon Musk', lang: 'en'},
+  headers: {
+    'X-RapidAPI-Key': 'b7b485002cmsha3b3d753d222112p1240f0jsn1aeaa47692d4',
+    'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+
+
+//  news.response.results.map(element =>{
+
+  // const elementGrid = document.querySelector(".grid-box")
+//    const newsImage = document.createElement("img")
+//    newsImage.src = element.image
+ // const gridItem = document.createElement("div")
+  //  const link = document.createElement("a")
+  //  link.href = element.url
+  //  gridItem.className = "grid-item"
+  //  const newsTitle = document.createElement("h3")
+  //  newsTitle.innerHTML = element.title
+ //   gridItem.appendChild(newsImage)
+  //  gridItem.appendChild(newsTitle)
+  //  link.appendChild(gridItem)
+  //  elementGrid.appendChild(link)
+  //  console.log(element)
+ // })
 };
 
 newsData();
