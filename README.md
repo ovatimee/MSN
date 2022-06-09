@@ -2,8 +2,7 @@
 
 This is my first project from learning Async and Await, I choose to rebuild the MSN weather app with my own design.
 
-
-### Screenshot
+## Making some changes
 
 <img width="1169" alt="Screen Shot 2022-06-06 at 1 25 22 PM" src="https://user-images.githubusercontent.com/26252304/172169659-68f9cd00-c7be-48a1-911d-a327a20ac37b.png">
 
