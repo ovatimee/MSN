@@ -342,40 +342,39 @@ const updateWeather = (data) => {
 // Weather News
 const newsData = async () => {
 
-  const options = {
+  const response = await fetch('https://free-news.p.rapidapi.com/v1/search?q=Weather', {
   method: 'GET',
-  url: 'https://free-news.p.rapidapi.com/v1/search',
-  params: {q: 'Elon Musk', lang: 'en'},
   headers: {
     'X-RapidAPI-Key': 'b7b485002cmsha3b3d753d222112p1240f0jsn1aeaa47692d4',
     'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
-  }
-};
-
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
+  },
 });
 
+const data = await response.json() 
 
-//  news.response.results.map(element =>{
 
-  // const elementGrid = document.querySelector(".grid-box")
-//    const newsImage = document.createElement("img")
-//    newsImage.src = element.image
- // const gridItem = document.createElement("div")
-  //  const link = document.createElement("a")
-  //  link.href = element.url
-  //  gridItem.className = "grid-item"
-  //  const newsTitle = document.createElement("h3")
-  //  newsTitle.innerHTML = element.title
- //   gridItem.appendChild(newsImage)
-  //  gridItem.appendChild(newsTitle)
-  //  link.appendChild(gridItem)
-  //  elementGrid.appendChild(link)
-  //  console.log(element)
- // })
+  data.articles.map(element =>{
+
+ const elementGrid = document.querySelector(".grid-box")
+  const newsImage = document.createElement("img")
+    newsImage.src = element.media
+  const gridItem = document.createElement("div")
+    const link = document.createElement("a")
+    link.href = element.url
+    gridItem.className = "grid-item"
+    gridItem.style.backgroundImage = `url("${element.media}")` 
+    const titleDiv = document.createElement("div")
+    titleDiv.className = "title"
+    const newsTitle = document.createElement("h3")
+    newsTitle.innerHTML = element.title
+    const imageBox = document.createElement("div")
+    titleDiv.appendChild(newsTitle)
+    imageBox.appendChild(newsImage)
+    gridItem.appendChild(imageBox)
+    gridItem.appendChild(titleDiv)
+    link.appendChild(gridItem)
+    elementGrid.appendChild(link)
+  })
 };
 
 newsData();
