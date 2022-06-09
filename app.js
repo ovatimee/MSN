@@ -362,7 +362,6 @@ const data = await response.json()
     const link = document.createElement("a")
     link.href = element.url
     gridItem.className = "grid-item"
-    gridItem.style.backgroundImage = `url("${element.media}")` 
     const titleDiv = document.createElement("div")
     titleDiv.className = "title"
     const newsTitle = document.createElement("h3")

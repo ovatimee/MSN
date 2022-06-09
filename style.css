@@ -40,15 +40,18 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #efefef;
   color: #000;
+    background: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%) no-repeat center center fixed;
 }
+
 nav {
   width: 100%;
-  display: flex;
+  display: inline-flex;
   padding: 1rem 3rem;
-  background-color: #000;
+  position: fixed;
+  background-color: inherit;
   align-items: center;
-  color: #fff;
 }
+
 .logo {
   margin-right: auto;
 }
@@ -63,9 +66,7 @@ img {
   object-fit: cover;
 }
 .weather__section {
-  background-color: #8EC5FC;
-background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-padding: 3rem 0;
+  padding: 9rem 0 2rem 0;
 }
 .weather_article {
   padding: 0.5rem 3rem;
@@ -76,8 +77,8 @@ padding: 3rem 0;
   margin-inline: auto;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.78);
-backdrop-filter: blur(12.2px);
--webkit-backdrop-filter: blur(12.2px);
+  backdrop-filter: blur(12.2px);
+  -webkit-backdrop-filter: blur(12.2px);
 }
 
 .loc__input-container {
@@ -179,16 +180,19 @@ backdrop-filter: blur(12.2px);
 }
 
 .forcastItem {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
   padding: 0 0.2em;
   width: 150px;
   text-align: left;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+-webkit-border-radius: 5px;
+border-radius: 5px;
+background: #D1D8EC;
+-webkit-box-shadow: 11px 11px 6px #868a97, -11px -11px 6px #ffffff;
+box-shadow: 11px 11px 6px #868a97, -11px -11px 6px #ffffff;
 }
 .forcastItem:nth-child(8) {
   display: none;
 }
+
 
 .forcastItem img {
   width: 50px;
@@ -230,21 +234,37 @@ td {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
   position: relative;
   border-radius: 5px;
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 }
 .grid-item h3 {
-  border-top: 1px solid;
   padding: 1rem;
-  backdrop-filter: blur(5px);
 }
-.title{
+.title {
   max-height: 90px;
+  width: 100%;
   overflow: hidden;
+  color: #efefef;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .grid-item img {
   object-fit: cover;
   margin-bottom: 12px;
 }
+
+.grid-box a:nth-child(1){
+  grid-column: span 2;
+}
+
+.grid-box a:nth-child(6){
+  grid-column: span 2;
+}
+
+
 
 @media screen and (min-width: 800px) {
   article {
